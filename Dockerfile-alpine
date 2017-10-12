@@ -1,5 +1,5 @@
 # DO NOT UPGRADE alpine until https://github.com/jenkinsci/docker/issues/508 is fixed
-FROM openjdk:8u121-jdk-alpine
+FROM eu.gcr.io/hunter-ci/openjdk:8u121-jdk
 
 RUN apk add --no-cache git openssh-client curl unzip bash ttf-dejavu coreutils
 
@@ -64,7 +64,7 @@ EXPOSE ${agent_port}
 
 ENV COPY_REFERENCE_FILE_LOG $JENKINS_HOME/copy_reference_file.log
 
-USER ${user}
+#USER ${user}
 
 COPY jenkins-support /usr/local/bin/jenkins-support
 COPY jenkins.sh /usr/local/bin/jenkins.sh
